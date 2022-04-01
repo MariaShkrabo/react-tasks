@@ -11,6 +11,9 @@ const Home = () => {
         .then((response) => {
             setPosts(response.data)
         })
+        .catch((e) => {
+            console.log(`😱 Axios request failed: ${e}`);
+        })
     }, []);
 
     return <PostList posts={posts}/>

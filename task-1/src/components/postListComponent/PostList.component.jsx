@@ -1,15 +1,14 @@
-import PostItem from "../postListItem/PostItem.component";
+import PostListItem from "../postListItem/PostListItem.component";
 import { PostListContainer } from "./PostList.styles";
 
 const PostList = ({posts}) => {
     return (
         <PostListContainer>
             {posts.map((post) => (
-                <PostItem key={post.id} post={post}/>
+                <PostListItem key={post.id} post={post}/>
             ))}
         </PostListContainer>
-        )
-        
+        )     
     }
 
 export default PostList;

@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { Wrapper } from './App.styles';
+import { PostProvider } from './contexts/post.contexts';
+import { UserProvider } from './contexts/user.contexts';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Wrapper> 
-      <App />
-    </Wrapper> 
+      <UserProvider>
+        <PostProvider>
+          <App />
+        </PostProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

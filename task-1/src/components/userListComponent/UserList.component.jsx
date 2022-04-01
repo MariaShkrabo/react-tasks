@@ -1,11 +1,11 @@
-import UserItem from "../userListItem/UserItem.component";
+import UserListItem from "../userListItem/UserListItem.component";
 import { UserListContainer } from "./UserList.styles";
 
 const UserList = ({users}) => {
     return (
         <UserListContainer>
             {users.map((user) => (
-                <UserItem key={user.id} user={user}/>
+                <UserListItem key={user.id} user={user}/>
             ))}
         </UserListContainer>
         )

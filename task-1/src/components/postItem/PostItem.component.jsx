@@ -1,4 +1,4 @@
-import { PostBody, PostItemContainer, PostTitle } from "./PostItem.styles";
+import { PostBody, PostItemContainer, PostTitle } from "../postListItem/PostListItem.styles";
 
 const PostItem = ({post}) => {
     const {title, body} = post;

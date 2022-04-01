@@ -7,5 +7,4 @@ export const UserListContainer = styled.section`
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 20px;
 `

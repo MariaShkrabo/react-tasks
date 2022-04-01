@@ -6,5 +6,4 @@ export const PostListContainer = styled.section`
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 20px;
 `

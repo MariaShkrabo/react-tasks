@@ -7,6 +7,9 @@ export const PostItemContainer = styled.div`
     align-items: center;
     border: 2px solid #7C005A;
     padding: 10px 0;
+    text-decoration: none;
+    color: black;
+    gap: 5px;
 
     &:hover{
         cursor: pointer;

@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;  
+`
+
 export const Header= styled.header`
     width: 100%;
     height: 80px;
@@ -27,6 +35,15 @@ export const NavBarLink = styled(Link)`
     &:hover{
         color: #37A110;
     }
+`
+
+export const MainSection = styled.section`
+    flex: 1 0 auto;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 2*80px);
 `
 
 export const Footer = styled.footer`
