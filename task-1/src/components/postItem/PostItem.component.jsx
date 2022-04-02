@@ -1,12 +1,27 @@
-import { PostBody, PostItemContainer, PostTitle } from "../postListItem/PostListItem.styles";
+import CommentItem from "./commentItem/CommentItem.component";
+import { AuthorInfoContainer, AuthorInfoItem, AuthorInfoTitle, CommentsContainer, CommentsTitle, PostContainer, PostMainInfoBody, PostMainInfoContainer, PostMainInfoTitle } from "./PostItem.styles";
 
-const PostItem = ({post}) => {
-    const {title, body} = post;
+
+const PostItem = ({post, comments, user}) => {
     return(
-        <PostItemContainer>
-            <PostTitle>{title}</PostTitle>
-            <PostBody>{body}</PostBody>
-        </PostItemContainer>
+        <PostContainer>
+            <AuthorInfoContainer>
+                <AuthorInfoTitle>Author:</AuthorInfoTitle>
+                <AuthorInfoItem>Username: {user.username}</AuthorInfoItem>
+                <AuthorInfoItem>Real name: {user.name}</AuthorInfoItem>
+                <AuthorInfoItem>Email: {user.email}</AuthorInfoItem>
+            </AuthorInfoContainer>
+            <PostMainInfoContainer>
+                <PostMainInfoTitle>{post.title}</PostMainInfoTitle>
+                <PostMainInfoBody>{post.body}</PostMainInfoBody>
+            </PostMainInfoContainer>
+            <CommentsContainer>
+                <CommentsTitle>Comments</CommentsTitle>
+                {comments.map((comment) => (
+                        <CommentItem key={comment.id} comment={comment}/>
+                ))}
+            </CommentsContainer>
+        </PostContainer>
     )
 }
 

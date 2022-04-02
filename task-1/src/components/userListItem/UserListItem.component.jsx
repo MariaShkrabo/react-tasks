@@ -13,6 +13,7 @@ const UserListItem = ({user}) => {
         setUserId(user.id);
         navigate(`/user-list/user/`);
     }
+    
     return(
         <UserItemContainer onClick={click}>
             <UserInfoItem><b>Username: </b>{username}</UserInfoItem>
