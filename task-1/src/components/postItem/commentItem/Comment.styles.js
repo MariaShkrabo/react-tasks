@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { MAIN_COLOR, ADD_INFO_BACKGROUND_COLOR } from "../../../constants/colors";
 
 export const CommentContainer = styled.div`
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    border: 2px solid #7C005A;
-    background-color: #FDCCEF;
+    border: 2px solid ${MAIN_COLOR};
+    background-color: ${ADD_INFO_BACKGROUND_COLOR};
 `
 
 export const CommentName = styled.h1`

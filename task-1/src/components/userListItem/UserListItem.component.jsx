@@ -9,13 +9,13 @@ const UserListItem = ({user}) => {
     const navigate = useNavigate();
     const { setUserId } = useContext(UserContext);
 
-    const click = () => {
+    const handleClick = () => {
         setUserId(user.id);
         navigate(`/user-list/user/`);
     }
     
     return(
-        <UserItemContainer onClick={click}>
+        <UserItemContainer onClick={handleClick}>
             <UserInfoItem><b>Username: </b>{username}</UserInfoItem>
             <UserInfoItem><b>Real Name: </b>{name}</UserInfoItem>
             <UserInfoItem><b>Email: </b>{email}</UserInfoItem>

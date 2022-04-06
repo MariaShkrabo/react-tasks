@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { MAIN_COLOR, MAIN_POINTER_COLOR } from "../../constants/colors";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -12,7 +13,7 @@ export const Wrapper = styled.div`
 export const Header= styled.header`
     width: 100%;
     height: 80px;
-    background-color: #7C005A;
+    background-color: ${MAIN_COLOR};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +34,7 @@ export const NavBarLink = styled(Link)`
     font-size: large;
 
     &:hover{
-        color: #37A110;
+        color: ${MAIN_POINTER_COLOR};
     }
 `
 
@@ -49,6 +50,6 @@ export const MainSection = styled.section`
 export const Footer = styled.footer`
     width: 100%;
     height: 80px;
-    background-color: #7C005A;
+    background-color: ${MAIN_COLOR};
     flex: 0 0 auto;
 `

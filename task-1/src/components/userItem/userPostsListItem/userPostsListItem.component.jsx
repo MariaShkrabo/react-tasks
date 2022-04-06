@@ -10,14 +10,14 @@ const UserPostsListItem = ({post}) => {
     const { setPostId } = useContext(PostContext);
     const { setUserId } = useContext(UserContext);
 
-    const click = () => {
+    const handleClick = () => {
         setPostId(post.id);
         setUserId(post.userId);
         navigate(`post`);
     }
     
     return(
-        <PostsItemContainer onClick={click}>
+        <PostsItemContainer onClick={handleClick}>
             <PostsItemTitle>{title}</PostsItemTitle>
             <PostsItemBody>{body}</PostsItemBody>
         </PostsItemContainer>
