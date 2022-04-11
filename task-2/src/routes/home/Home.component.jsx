@@ -3,19 +3,19 @@ import { useState } from "react";
 import axios from "axios";
 import PostList from "../../components/postListComponent/PostList.component";
 
-const Home = () => {
-    const [posts, setPosts] = useState([]);
-
+ const Home = () => {
+    const [posts, setPosts1] = useState([]);
+    
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/posts")
         .then((response) => {
-            setPosts(response.data)
+            setPosts1(response.data);
         })
         .catch((e) => {
             console.log(`😱 Axios request failed: ${e}`);
         })
-    }, []);
-
+    }, []); 
+    
     return <PostList posts={posts}/>
 }
 

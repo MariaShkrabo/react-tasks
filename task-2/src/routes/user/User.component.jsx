@@ -1,23 +1,15 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { UserContext } from "../../contexts/user.contexts";
 import UserItem from "../../components/userItem/UserItem.component";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../store/user/user.selector";
 
 const User = () => {
-    const { userId } = useContext(UserContext);
-    const [user, setUser] = useState({});
+    const user = useSelector(selectUser);
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
-        .then((response) => {
-            setUser(response.data);
-        })
-        .catch((e) => {
-            console.log(`😱 Axios request failed: ${e}`);
-        })
-
-        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
         .then((response) => {
             setPosts(response.data);
         })

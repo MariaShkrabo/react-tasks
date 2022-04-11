@@ -1,16 +1,15 @@
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../contexts/user.contexts";
+import { setUser } from "../../store/user/user.action";
 import { UserInfoItem, UserItemContainer } from "./UserListItem.styles";
-
 
 const UserListItem = ({user}) => {
     const {name, username, email, address} = user;
     const navigate = useNavigate();
-    const { setUserId } = useContext(UserContext);
+    const dispatch = useDispatch();
 
     const handleClick = () => {
-        setUserId(user.id);
+        dispatch(setUser(user));
         navigate(`/user-list/user/`);
     }
     

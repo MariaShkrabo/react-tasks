@@ -1,18 +1,15 @@
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { PostContext } from "../../../contexts/post.contexts";
-import { UserContext } from "../../../contexts/user.contexts";
+import { setPost } from "../../../store/post/post.action";
 import { PostsItemBody, PostsItemContainer, PostsItemTitle } from "./userPostsListItem.styles";
 
 const UserPostsListItem = ({post}) => {
     const {title, body} = post;
     const navigate = useNavigate();
-    const { setPostId } = useContext(PostContext);
-    const { setUserId } = useContext(UserContext);
+    const dispatch = useDispatch();
 
     const handleClick = () => {
-        setPostId(post.id);
-        setUserId(post.userId);
+        dispatch(setPost(post));
         navigate(`post`);
     }
     

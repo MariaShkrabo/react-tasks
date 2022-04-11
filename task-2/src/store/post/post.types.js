@@ -1,0 +1,5 @@
+const POST_ACTION_TYPES = {
+    SET_CURRENT_POST: 'post/SET_CURRENT_POST',
+}
+
+export default POST_ACTION_TYPES;
