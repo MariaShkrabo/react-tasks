@@ -1,7 +1,6 @@
 import CommentItem from "./commentItem/CommentItem.component";
 import { AuthorInfoContainer, AuthorInfoItem, AuthorInfoTitle, CommentsContainer, CommentsTitle, PostContainer, PostMainInfoBody, PostMainInfoContainer, PostMainInfoTitle } from "./PostItem.styles";
 
-
 const PostItem = ({post, comments, user}) => {
     return(
         <PostContainer>

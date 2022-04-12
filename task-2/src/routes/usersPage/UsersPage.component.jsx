@@ -1,21 +1,16 @@
-import { useState, useContext, useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import UserList from "../../components/userListComponent/UserList.component";
+import { useDispatch } from "react-redux";
+import { fetchUsersStartAsync } from "../../store/users/users.action";
 
 const UsersPage = () => {
-    const [users, setUsers] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/users`)
-        .then((response) => {
-            setUsers(response.data)
-        })
-        .catch((e) => {
-            console.log(`😱 Axios request failed: ${e}`);
-        })
+        dispatch(fetchUsersStartAsync());
     }, []);
 
-    return <UserList users={users}/>
+    return <UserList/>
 }
 
 export default UsersPage;

@@ -1,22 +1,16 @@
 import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
 import PostList from "../../components/postListComponent/PostList.component";
+import { useDispatch } from "react-redux";
+import { fetchPostsStartAsync } from "../../store/posts/posts.action";
 
  const Home = () => {
-    const [posts, setPosts1] = useState([]);
-    
+    const dispatch = useDispatch();
+     
     useEffect(() => {
-        axios.get("https://jsonplaceholder.typicode.com/posts")
-        .then((response) => {
-            setPosts1(response.data);
-        })
-        .catch((e) => {
-            console.log(`😱 Axios request failed: ${e}`);
-        })
-    }, []); 
+        dispatch(fetchPostsStartAsync());
+      }, []);
     
-    return <PostList posts={posts}/>
+    return <PostList/>
 }
 
 export default Home;
