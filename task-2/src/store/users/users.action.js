@@ -16,7 +16,7 @@ export const fetchUsersFailure = (error) =>
   createAction(USERS_ACTION_TYPES.FETCH_USERS_FAILED, error);
 
 
-export const fetchUsersStartAsync = () => {
+export const fetchUsers = () => {
   return async (dispatch) => {
     dispatch(fetchUsersStart());
     axios.get("https://jsonplaceholder.typicode.com/users")

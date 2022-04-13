@@ -32,18 +32,18 @@ const PostItem = () => {
                 {commentsIsLoading ? 
                     <Spinner />
                     :
-                    <Fragment>
-                    {commentsError != null ? 
+                    <>
+                    {commentsError ? 
                         <FailureWarning text={`Post Comments Weren't Received`} />
                         :
-                        <Fragment>
+                        <>
                             <CommentsTitle>Comments</CommentsTitle>
                             {comments.map((comment) => (
                                 <CommentItem key={comment.id} comment={comment}/>
                             ))}
-                        </Fragment>
+                        </>
                     }
-                    </Fragment>    
+                    </>    
                 }
             </CommentsContainer>
         </PostContainer>

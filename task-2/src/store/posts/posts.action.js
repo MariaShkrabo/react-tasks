@@ -15,7 +15,7 @@ export const fetchPostsFailure = (error) =>
   createAction(POSTS_ACTION_TYPES.FETCH_POSTS_FAILED, error);
 
 
-export const fetchPostsStartAsync = () => {
+export const fetchPosts = () => {
   return async (dispatch) => {
     dispatch(fetchPostsStart());
       axios.get("https://jsonplaceholder.typicode.com/posts")

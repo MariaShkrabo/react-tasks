@@ -15,7 +15,7 @@ export const fetchPostCommentsFailure = (error) =>
   createAction(POST_COMMENTS_ACTION_TYPES.FETCH_POST_COMMENTS_FAILED, error);
 
 
-export const fetchPostCommentsStartAsync = (postId) => {
+export const fetchPostComments = (postId) => {
   return async (dispatch) => {
     dispatch(fetchPostCommentsStart());
       axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)

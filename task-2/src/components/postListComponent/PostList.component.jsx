@@ -15,8 +15,8 @@ const PostList = () => {
             {isLoading ? 
                 <Spinner />
                 :
-                <Fragment>
-                {isError != null ? 
+                <>
+                {isError ? 
                     <FailureWarning text={`Posts Weren't Received`} />
                     :
                     <PostListContainer>
@@ -25,7 +25,7 @@ const PostList = () => {
                         ))}
                     </PostListContainer>
                 }
-                </Fragment>    
+                </>    
             }
         </Fragment> 
      )    

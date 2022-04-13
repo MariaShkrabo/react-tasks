@@ -15,8 +15,8 @@ const UserList = () => {
             {isLoading ? 
                 <Spinner />
                 :
-                <Fragment>
-                {isError != null ? 
+                <>
+                {isError ? 
                     <FailureWarning text={`Users Weren't Received`} />
                     :
                     <UserListContainer>
@@ -25,7 +25,7 @@ const UserList = () => {
                         ))}
                     </UserListContainer>
                 }
-                </Fragment>    
+                </>    
             }
         </Fragment> 
      )    
