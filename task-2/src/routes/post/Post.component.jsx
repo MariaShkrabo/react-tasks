@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import PostItem from "../../components/postItem/PostItem.component";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPost } from "../../store/post/post.selector";
@@ -7,19 +6,13 @@ import { fetchPostCommentsStartAsync } from "../../store/postСomments/postСomm
 
 const Post = () => {
     const post = useSelector(selectPost);
-    const [user, setUser] = useState({});
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchPostCommentsStartAsync(post.id));
-        axios.get(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
-        .then((response) => {
-            setUser(response.data);
-        })
-
     }, []);
 
-    return <PostItem post={post} user={user}/>
+    return <PostItem/>
 }
 
 export default Post;

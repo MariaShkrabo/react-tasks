@@ -1,15 +1,20 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
+import { selectPost } from "../../store/post/post.selector";
 import { selectPostComments, selectPostCommentsError, selectPostCommentsIsLoading } from "../../store/postСomments/postСomments.selector";
+import { selectUsers } from "../../store/users/users.selector";
 import FailureWarning from "../failureWarning/failureWarning.component";
 import Spinner from "../spinner/spinner.component";
 import CommentItem from "./commentItem/CommentItem.component";
 import { AuthorInfoContainer, AuthorInfoItem, AuthorInfoTitle, CommentsContainer, CommentsTitle, PostContainer, PostMainInfoBody, PostMainInfoContainer, PostMainInfoTitle } from "./PostItem.styles";
 
-const PostItem = ({post, user}) => {
+const PostItem = () => {
     const comments = useSelector(selectPostComments);
     const commentsIsLoading = useSelector(selectPostCommentsIsLoading);
     const commentsError = useSelector(selectPostCommentsError);
+    const post = useSelector(selectPost);
+    //looking for the user who wrote the post
+    const user = useSelector(selectUsers).find(user => user.id === post.userId);
     return(
         <PostContainer>
             <AuthorInfoContainer>

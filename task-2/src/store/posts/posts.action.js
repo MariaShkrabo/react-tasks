@@ -20,7 +20,7 @@ export const fetchPostsStartAsync = () => {
     dispatch(fetchPostsStart());
       axios.get("https://jsonplaceholder.typicode.com/posts")
         .then((response) => {
-            dispatch(fetchPostsSuccess(response.data));
+          dispatch(fetchPostsSuccess(response.data));
         })
         .catch((error) => {
           dispatch(fetchPostsFailure(error));
