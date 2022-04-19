@@ -10,7 +10,9 @@ const Post = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPostComments(post.id));
+        if(post){
+            dispatch(fetchPostComments(post.id));
+        }
     }, []);
 
     return <PostItem/>

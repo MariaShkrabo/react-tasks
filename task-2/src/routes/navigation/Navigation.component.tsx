@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import { Fragment } from "react";
 import { Footer, Header, MainSection, NavBarLink, NavbarLinkContainer, Wrapper } from "./Navigation.styles";
 
 

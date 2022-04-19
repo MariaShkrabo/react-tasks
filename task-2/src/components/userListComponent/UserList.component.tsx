@@ -7,7 +7,7 @@ import UserListItem from "../userListItem/UserListItem.component";
 import { UserListContainer } from "./UserList.styles";
 
 const UserList = () => {
-    const { users, isLoading, isError } = useTypedSelector(selectUsers);
+    const { users, isLoading, error } = useTypedSelector(selectUsers);
     
     return(
         <Fragment>
@@ -15,7 +15,7 @@ const UserList = () => {
                 <Spinner />
                 :
                 <>
-                {isError ? 
+                {error ? 
                     <FailureWarning text={`Users Weren't Received`} />
                     :
                     <UserListContainer>

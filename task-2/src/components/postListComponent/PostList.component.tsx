@@ -7,7 +7,7 @@ import { useTypedSelector } from "../../utils/selector/selector.utils";
 import { selectPosts } from "../../store/posts/posts.selector";
 
 const PostList = () => {
-    const { posts, isLoading, isError } = useTypedSelector(selectPosts);
+    const { posts, isLoading, error } = useTypedSelector(selectPosts);
 
     return(
         <Fragment>
@@ -15,7 +15,7 @@ const PostList = () => {
                 <Spinner />
                 :
                 <>
-                {isError ? 
+                {error ? 
                     <FailureWarning text={`Posts Weren't Received`} />
                     :
                     <PostListContainer>

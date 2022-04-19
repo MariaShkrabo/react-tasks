@@ -1,5 +1,4 @@
 import { User } from "../users/users.reducer";
-import { UserState } from "./user.reducer";
 import { USER_ACTION_TYPES } from "./user.types";
 
 
@@ -8,7 +7,7 @@ export interface UserAction {
   payload: User;
 }
 
-export const setUser = (user: UserState) => {
+export const setUser = (user: User) => {
   return ({
     type: USER_ACTION_TYPES.SET_CURRENT_USER,
     payload: user

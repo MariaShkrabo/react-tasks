@@ -2,8 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { PostBody, PostItemContainer, PostTitle } from "./PostListItem.styles";
 import { useDispatch } from "react-redux";
 import { setPost } from "../../store/post/post.action";
+import { Post } from "../../store/posts/posts.reducer";
 
-const PostListItem = ({post}) => {
+type PostListItemProps = {
+    post: Post;
+} 
+
+const PostListItem = ({post}: PostListItemProps) => {
     const {title, body} = post;
     const navigate = useNavigate();
     const dispatch = useDispatch();

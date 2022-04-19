@@ -1,9 +1,14 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../../store/user/user.action";
+import { User } from "../../store/users/users.reducer";
 import { UserInfoItem, UserItemContainer } from "./UserListItem.styles";
 
-const UserListItem = ({user}) => {
+type UserListItemProps = {
+    user: User;
+} 
+
+const UserListItem = ({user}: UserListItemProps) => {
     const {name, username, email, address} = user;
     const navigate = useNavigate();
     const dispatch = useDispatch();

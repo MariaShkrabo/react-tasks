@@ -10,20 +10,31 @@ import { AuthorInfoContainer, AuthorInfoItem, AuthorInfoTitle, CommentsContainer
 const PostItem = () => {
     const { post } = useTypedSelector(selectPost);
     //looking for the user who wrote the post
-    const user = useTypedSelector(selectUsers)["users"].find(user => user.id === post.userId);
+    let postID: number;
+
+    post ? postID = post.userId : postID = 0;
+    
+    const user = useTypedSelector(selectUsers)["users"].find(user => user.id === postID);
     const { comments, commentsIsLoading, commentsError } = useTypedSelector(selectPostComments);
+    
     return(
         <PostContainer>
+            {user ?
             <AuthorInfoContainer>
                 <AuthorInfoTitle>Author:</AuthorInfoTitle>
                 <AuthorInfoItem>Username: {user.username}</AuthorInfoItem>
                 <AuthorInfoItem>Real name: {user.name}</AuthorInfoItem>
                 <AuthorInfoItem>Email: {user.email}</AuthorInfoItem>
             </AuthorInfoContainer>
+            :<FailureWarning text={`User Was't Received`} />
+            }
+            {post ?
             <PostMainInfoContainer>
                 <PostMainInfoTitle>{post.title}</PostMainInfoTitle>
                 <PostMainInfoBody>{post.body}</PostMainInfoBody>
             </PostMainInfoContainer>
+            :<FailureWarning text={`Post Was't Received`} />
+            }
 
             <CommentsContainer>
                 {commentsIsLoading ? 

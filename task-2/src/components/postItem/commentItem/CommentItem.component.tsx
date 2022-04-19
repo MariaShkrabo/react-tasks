@@ -1,6 +1,11 @@
+import { PostComments } from "../../../store/postСomments/postСomments.reducer";
 import { CommentBody, CommentContainer, CommentEmail, CommentName } from "./Comment.styles";
 
-const CommentItem = ({ comment }) => {
+type CommentProps = {
+    comment: PostComments;
+} 
+
+const CommentItem = ({ comment }: CommentProps) => {
     const { name, email, body } = comment;
     return (
         <CommentContainer>

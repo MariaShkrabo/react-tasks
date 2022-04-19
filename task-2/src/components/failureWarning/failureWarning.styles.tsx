@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MAIN_COLOR, TITLES_POINTER_BACKGROUND_COLOR } from '../../constants/colors';
+import { MAIN_COLOR } from '../../constants/colors';
 
 export const WarningContainer = styled.div`
   width: 100%;
