@@ -1,0 +1,4 @@
+export enum POST_ACTION_TYPES {
+    SET_CURRENT_POST = 'post/SET_CURRENT_POST',
+}
+

@@ -1,20 +1,17 @@
-import { Fragment } from "react";
-import { useSelector } from "react-redux";
 import { selectPost } from "../../store/post/post.selector";
-import { selectPostComments, selectPostCommentsError, selectPostCommentsIsLoading } from "../../store/postСomments/postСomments.selector";
+import { selectPostComments } from "../../store/postСomments/postСomments.selector";
 import { selectUsers } from "../../store/users/users.selector";
+import { useTypedSelector } from "../../utils/selector/selector.utils";
 import FailureWarning from "../failureWarning/failureWarning.component";
 import Spinner from "../spinner/spinner.component";
 import CommentItem from "./commentItem/CommentItem.component";
 import { AuthorInfoContainer, AuthorInfoItem, AuthorInfoTitle, CommentsContainer, CommentsTitle, PostContainer, PostMainInfoBody, PostMainInfoContainer, PostMainInfoTitle } from "./PostItem.styles";
 
 const PostItem = () => {
-    const comments = useSelector(selectPostComments);
-    const commentsIsLoading = useSelector(selectPostCommentsIsLoading);
-    const commentsError = useSelector(selectPostCommentsError);
-    const post = useSelector(selectPost);
+    const { post } = useTypedSelector(selectPost);
     //looking for the user who wrote the post
-    const user = useSelector(selectUsers).find(user => user.id === post.userId);
+    const user = useTypedSelector(selectUsers)["users"].find(user => user.id === post.userId);
+    const { comments, commentsIsLoading, commentsError } = useTypedSelector(selectPostComments);
     return(
         <PostContainer>
             <AuthorInfoContainer>

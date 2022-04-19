@@ -12,3 +12,7 @@ export const rootReducer = combineReducers({
     users: usersReducer,
     postComments: postCommentsReducer,
 })
+
+export default rootReducer;
+
+export type RootState = ReturnType<typeof rootReducer>;

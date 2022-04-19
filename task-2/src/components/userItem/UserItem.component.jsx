@@ -1,13 +1,13 @@
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
 import { selectPosts } from "../../store/posts/posts.selector";
 import { selectUser } from "../../store/user/user.selector";
+import { useTypedSelector } from "../../utils/selector/selector.utils";
 import { UserInfo, UserInfoItem, UserItemContainer, UsersPostsList } from "./UserItem.styles";
 import UserPostsListItem from "./userPostsListItem/userPostsListItem.component";
 
 const UserItem = () => {
-    const user = useSelector(selectUser);
-    const posts = useSelector(selectPosts).filter(post => post.userId === user.id);
+    const { user } = useTypedSelector(selectUser);
+    const posts = useTypedSelector(selectPosts)["posts"].filter(post => post.userId === user.id);
     const {name, username, email, address, phone, website, company} = user;
     return(
         <UserItemContainer>

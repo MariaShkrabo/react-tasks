@@ -1,16 +1,15 @@
-import { useSelector } from "react-redux";
-import { selectPosts, selectPostsError, selectPostsIsLoading } from "../../store/posts/posts.selector";
 import PostListItem from "../postListItem/PostListItem.component";
 import { PostListContainer } from "./PostList.styles";
 import Spinner from "../spinner/spinner.component";
 import { Fragment } from "react";
 import FailureWarning from "../failureWarning/failureWarning.component";
+import { useTypedSelector } from "../../utils/selector/selector.utils";
+import { selectPosts } from "../../store/posts/posts.selector";
 
 const PostList = () => {
-    const posts = useSelector(selectPosts);
-    const isLoading = useSelector(selectPostsIsLoading);
-    const isError = useSelector(selectPostsError);
-     return(
+    const { posts, isLoading, isError } = useTypedSelector(selectPosts);
+
+    return(
         <Fragment>
             {isLoading ? 
                 <Spinner />

@@ -1,15 +1,14 @@
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
-import { selectUsers, selectUsersError, selectUsersIsLoading } from "../../store/users/users.selector";
+import { selectUsers } from "../../store/users/users.selector";
+import { useTypedSelector } from "../../utils/selector/selector.utils";
 import FailureWarning from "../failureWarning/failureWarning.component";
 import Spinner from "../spinner/spinner.component";
 import UserListItem from "../userListItem/UserListItem.component";
 import { UserListContainer } from "./UserList.styles";
 
 const UserList = () => {
-    const users = useSelector(selectUsers);
-    const isLoading = useSelector(selectUsersIsLoading);
-    const isError = useSelector(selectUsersError);
+    const { users, isLoading, isError } = useTypedSelector(selectUsers);
+    
     return(
         <Fragment>
             {isLoading ? 
